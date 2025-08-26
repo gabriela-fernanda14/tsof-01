@@ -1,4 +1,4 @@
-import { somar, subtrair} from "../src/calculadora";
+import { somar, subtrair, multiplicar, dividir} from "../src/calculadora";
 
 describe("Calculadora", () => {
     test("Deve somar dois números corretamente", () => {
@@ -26,6 +26,34 @@ describe("Calculadora", () => {
         //Assert (Verificar)
         expect(resultado).toBe(10);
     });
-})
+    test("Deve multiplicar dois números corretamente", () => {
+        //AAA
+        //Arrange (Preparar)
+        const a = 10;
+        const b = 4;
 
-   
+        //Act (Executar)
+        const resultado = multiplicar(a, b);
+
+        //Assert (Verificar)
+        expect(resultado).toBe(40);
+    });
+    test("Deve dividir dois números corretamente", () => {
+        //AAA
+        //Arrange (Preparar)
+        const a = 10;
+        const b = 5;
+
+        //Act (Executar)
+        const resultado = dividir(a, b);
+
+        //Assert (Verificar)
+        expect(resultado).toBe(2);
+    });
+
+    test("Deve lançar erro ao dividir por zero", () => {
+       expect(() => {
+           dividir(10, 0);
+       }).toThrow("Divisão por zero não é permitida.");
+   });
+});
